@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!-- id가 cat1이고, diEx2패키지에 있는 MyCats클래스를 뜻하는 bean(객체) 생성 -->
+    <bean id="cat1" class="diEx02.MyCats">
+        <constructor-arg> <!-- 생성자를 이용 -->
+            <value>나비</value>
+        </constructor-arg>
+        <constructor-arg>
+            <value>2</value>
+        </constructor-arg>
+        <constructor-arg>
+            <list><!-- 배열일 경우에 사용 -->
+                <value>잠자기</value>
+                <value>꾹꾹이</value>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <!-- 두번째 고양이 -->
+    <bean id="cat2" class="diEx02.MyCats">
+        <constructor-arg value="호랑이"/>
+        <constructor-arg value="1" />
+        <constructor-arg>
+            <list>
+                <value>우다다</value>
+                <value>박치기</value>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <!-- id가 catsInfo이고, diEx2패키지에 있는 Cats클래스를 뜻하는 bean(객체) 생성 -->
+    <bean id="catsInfo" class="diEx02.Cats">
+        <!-- catsInfo라는 bean은 위에서 만든 cat1이라는 bean(객체)를 참조함 -->
+        <constructor-arg>
+            <ref bean="cat1" />
+        </constructor-arg>
+    </bean>
+
+</beans>
